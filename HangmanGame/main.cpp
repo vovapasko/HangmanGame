@@ -7,15 +7,18 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <vector>
 using namespace std;
 
 
 void displayGameDetails(int);
 void chose_the_word(string&);
 void start_game(string);
+void moderate(string, string&, char);
 
+
+int max_tries = 7;
 int main() {
-    int max_tries = 7;
     string quessed_word;
     
     displayGameDetails(max_tries);
@@ -25,11 +28,31 @@ int main() {
 
 void start_game(string word){
     string hidden_word;
+    char users_letter;
+    cout << "Now let's start guessing. Here is how the word looks like: ";
     for (int i = 0; i < word.size(); i++) {
         hidden_word.insert(i, "-");
     }
     cout << hidden_word << endl;
+    cout << "You have " << max_tries << " attempts";
+    cout << "Type the letter: ";
+    cin >> users_letter;
+    cout << users_letter;
+    moderate(word, hidden_word, users_letter);
 }
+
+void moderate(string origin_word, string& hidden_word, char users_letter){
+    vector<int> letter_indicies;
+    for (int i = 0; i < origin_word.size(); i++){
+        if (origin_word.at(i) == users_letter){
+            letter_indicies.
+        }
+    }
+    
+    
+}
+
+
 void chose_the_word(string &word){
     bool word_chosing_flag = true;
     string users_choice;

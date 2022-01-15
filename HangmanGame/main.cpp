@@ -53,7 +53,9 @@ void start_game(string word){
 }
 
 void open_letters_in_word(string origin_word, string &hidden_word, vector<int> indeces){
-    
+    for (int index: indeces){
+        hidden_word[index] = origin_word[index];
+    }
 }
 
 void display_attemts(){

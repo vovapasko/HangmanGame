@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		AA8D87F82791F35800694C96 /* HangmanGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HangmanGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D87FB2791F35800694C96 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AAFE99E527934F9E005D96F9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		AA8D87EF2791F35800694C96 = {
 			isa = PBXGroup;
 			children = (
+				AAFE99E527934F9E005D96F9 /* .gitignore */,
 				AA8D87FA2791F35800694C96 /* HangmanGame */,
 				AA8D87F92791F35800694C96 /* Products */,
 			);

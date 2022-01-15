@@ -14,8 +14,9 @@ using namespace std;
 void displayGameDetails(int);
 void chose_the_word(string&);
 void start_game(string);
-void moderate(string, string&, char);
-
+vector<int> find_letter_index(string, string&, char);
+void display_attemts();
+void open_letters_in_word(string ,string&, vector<int>);
 
 int max_tries = 7;
 int main() {
@@ -26,6 +27,7 @@ int main() {
     start_game(quessed_word);
 }
 
+
 void start_game(string word){
     string hidden_word;
     char users_letter;
@@ -33,22 +35,39 @@ void start_game(string word){
     for (int i = 0; i < word.size(); i++) {
         hidden_word.insert(i, "-");
     }
-    cout << hidden_word << endl;
-    cout << "You have " << max_tries << " attempts";
+    cout << word << endl;
+    display_attemts();
     cout << "Type the letter: ";
     cin >> users_letter;
     cout << users_letter;
-    moderate(word, hidden_word, users_letter);
+    auto indices = find_letter_index(word, hidden_word, users_letter);
+    if (indices.size() > 0){
+        open_letters_in_word(word, hidden_word, indices);
+    }
+    else{
+        cout << "Your letter is not in the word" << endl;
+    }
+    max_tries--;
+    display_attemts();
+    
 }
 
-void moderate(string origin_word, string& hidden_word, char users_letter){
+void open_letters_in_word(string origin_word, string &hidden_word, vector<int> indeces){
+    
+}
+
+void display_attemts(){
+    cout << "You have " << max_tries << " attempts";
+}
+
+vector<int> find_letter_index(string origin_word, string& hidden_word, char users_letter){
     vector<int> letter_indicies;
     for (int i = 0; i < origin_word.size(); i++){
         if (origin_word.at(i) == users_letter){
-            letter_indicies.
+            letter_indicies.push_back(i);
         }
     }
-    
+    return letter_indicies;
     
 }
 

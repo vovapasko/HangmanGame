@@ -17,6 +17,7 @@ void start_game(string);
 vector<int> find_letter_index(string, string&, char);
 void display_attemts();
 void open_letters_in_word(string ,string&, vector<int>);
+bool check_word_status(string);
 
 int max_tries = 7;
 int main() {
@@ -31,24 +32,46 @@ int main() {
 void start_game(string word){
     string hidden_word;
     char users_letter;
+    bool game_finished = false;
+    bool word_guessed;
     cout << "Now let's start guessing. Here is how the word looks like: ";
     for (int i = 0; i < word.size(); i++) {
         hidden_word.insert(i, "-");
     }
-    cout << word << endl;
+    cout << hidden_word << endl;
     display_attemts();
-    cout << "Type the letter: ";
-    cin >> users_letter;
-    cout << users_letter;
-    auto indices = find_letter_index(word, hidden_word, users_letter);
-    if (indices.size() > 0){
-        open_letters_in_word(word, hidden_word, indices);
+    while (game_finished == false) {
+        cout << "Type the letter: ";
+        cin >> users_letter;
+        cout << users_letter;
+        auto indices = find_letter_index(word, hidden_word, users_letter);
+        if (indices.size() > 0){
+            open_letters_in_word(word, hidden_word, indices);
+        }
+        else{
+            cout << "Your letter is not in the word" << endl;
+        }
+        max_tries--;
+        display_attemts();
+        word_guessed = check_word_status(hidden_word);
+        if (word_guessed) {
+            game_finished = true;
+            cout << "You won the game. Congratulations!" << endl;
+        }
+        else if (max_tries == 0 && word_guessed == false){
+            game_finished = true;
+            cout << "You lost the game" << endl;
+        }
     }
-    else{
-        cout << "Your letter is not in the word" << endl;
+}
+
+bool check_word_status(string word){
+    for(char c : word){
+        if (c == '-'){
+            return false;
+        }
     }
-    max_tries--;
-    display_attemts();
+    return true;
     
 }
 

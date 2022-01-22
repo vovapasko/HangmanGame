@@ -8,23 +8,27 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <random>
+
+
 using namespace std;
 
 
 void displayGameDetails(int);
-void chose_the_word(string&);
+string chose_the_word();
 void start_game(string);
 vector<int> find_letter_index(string, string&, char);
 void display_attemts();
 void open_letters_in_word(string ,string&, vector<int>);
 bool check_word_status(string);
+int pick_random_number(int,int);
 
 int max_tries = 7;
 int main() {
     string quessed_word;
     
     displayGameDetails(max_tries);
-    chose_the_word(quessed_word);
+    quessed_word = chose_the_word();
     start_game(quessed_word);
 }
 
@@ -97,21 +101,19 @@ vector<int> find_letter_index(string origin_word, string& hidden_word, char user
 }
 
 
-void chose_the_word(string &word){
-    bool word_chosing_flag = true;
-    string users_choice;
-    do {
-        cout << "Now let the first player to chose the word" << endl;
-        cin >> word;
-        cout << "You choose the word - " << word << endl;
-        cout << "If you want to set the word again, type 'n' in the console. Otherwise type something else and we'll play further" << endl;
-        cin >> users_choice;
-        if (users_choice != "n"){
-            word_chosing_flag = false;
-        }
-    } while (word_chosing_flag);
-    
+string chose_the_word(){
+    string words[] = {"dog", "parrot", "kitten"};
+    int word_index = pick_random_number(0, 3);
+    return words[word_index];
 }
+
+int pick_random_number(int min, int max){
+    std::random_device rd; // obtain a random number from hardware
+    std::mt19937 gen(rd()); // seed the generator
+    std::uniform_int_distribution<> distr(min, max); // define the range
+    return distr(gen);
+}
+
 void displayGameDetails(int maxTries){
     cout << "\n"
     "        .-------------------------------------------------------------------------------.\n"

@@ -9,12 +9,11 @@
 #include <string>
 #include <vector>
 #include <random>
-
+#include "game_logic.hpp"
 
 using namespace std;
 
 
-void displayGameDetails(int);
 string chose_the_word();
 void start_game(string);
 vector<int> find_letter_index(string, string&, char);
@@ -121,22 +120,5 @@ int pick_random_number(int min, int max){
     std::mt19937 gen(rd()); // seed the generator
     std::uniform_int_distribution<> distr(min, max); // define the range
     return distr(gen);
-}
-
-void displayGameDetails(int maxTries){
-    cout << "\n"
-    "        .-------------------------------------------------------------------------------.\n"
-    "        |      _      _                                                                  |\n"
-    "        |     | |    | |   __ _    _ __      __ _        /\\/\\      __ _    _ __          |\n"
-    "        |     | |----| |  / _  |  |  _ \\    / _` |      /    \\    / _  |  |  _  \\        |\n"
-    "        |     | |----| | | (_| |  | | | |  | (_| |     / /\\/\\ |  | (_| |  | | | |        |\n"
-    "        |     |_|    |_|  \\_ _ |  |_| |_|   \\__, |     \\/    \\/   \\_ _ |  |_| |_|        |\n"
-    "        |                                    |___/                                       |\n"
-    "        .--------------------------------------------------------------------------------.\n";
-
-    cout << "The purpose of this game is to guess an animal name, secretly chosen by the application\n\n";
-    cout << "You have to guess one letter at a time and you can have " << maxTries << " wrong attempts\n\n";
-    cout << "Enter a lower-case letter and don't forget to enter key after each guess\n\n";
-    cout << "Let's play the game!\n\n";
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AA8D87FC2791F35800694C96 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA8D87FB2791F35800694C96 /* main.cpp */; };
+		AAC9D47527A6DACC005C0F0B /* game_logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D47327A6DAC7005C0F0B /* game_logic.cpp */; };
+		AAC9D47827A6DD4F005C0F0B /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D47627A6DD4F005C0F0B /* helpers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		AA8D87F82791F35800694C96 /* HangmanGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HangmanGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D87FB2791F35800694C96 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AAC9D47327A6DAC7005C0F0B /* game_logic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game_logic.cpp; sourceTree = "<group>"; };
+		AAC9D47427A6DAC7005C0F0B /* game_logic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game_logic.hpp; sourceTree = "<group>"; };
+		AAC9D47627A6DD4F005C0F0B /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		AAC9D47727A6DD4F005C0F0B /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		AAFE99E527934F9E005D96F9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				AA8D87FB2791F35800694C96 /* main.cpp */,
+				AAC9D47327A6DAC7005C0F0B /* game_logic.cpp */,
+				AAC9D47427A6DAC7005C0F0B /* game_logic.hpp */,
+				AAC9D47627A6DD4F005C0F0B /* helpers.cpp */,
+				AAC9D47727A6DD4F005C0F0B /* helpers.hpp */,
 			);
 			path = HangmanGame;
 			sourceTree = "<group>";
@@ -121,6 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC9D47527A6DACC005C0F0B /* game_logic.cpp in Sources */,
+				AAC9D47827A6DD4F005C0F0B /* helpers.cpp in Sources */,
 				AA8D87FC2791F35800694C96 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

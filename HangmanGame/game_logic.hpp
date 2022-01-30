@@ -8,9 +8,13 @@
 #ifndef game_logic_hpp
 #define game_logic_hpp
 
-#include <stdio.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
+
+void start_game(string);
 void displayGameDetails(int);
+
 
 #endif /* game_logic_hpp */

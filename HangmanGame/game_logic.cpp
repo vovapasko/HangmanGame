@@ -6,9 +6,50 @@
 //
 
 #include "game_logic.hpp"
+#include "helpers.hpp"
+#include <vector>
 
 #include <iostream>
 using namespace std;
+
+
+int max_tries = 7;
+
+void start_game(string word){
+    string hidden_word;
+    char users_letter;
+    bool game_finished = false;
+    bool word_guessed;
+    cout << "Let's start the game" << endl;
+    generate_hidden_word(hidden_word, word);
+    show_hidden_word(hidden_word);
+    display_attemts(max_tries);
+    while (game_finished == false) {
+        cout << "Type the letter: ";
+        cin >> users_letter;
+        auto indices = find_letter_index(word, hidden_word, users_letter);
+        if (indices.size() > 0){
+            open_letters_in_word(word, hidden_word, indices);
+        }
+        else{
+            cout << "You are wrong. ";
+            cout << "Your letter is not in the word" << endl;
+        }
+        max_tries--;
+        show_hidden_word(hidden_word);
+        display_attemts(max_tries);
+        word_guessed = check_word_status(hidden_word);
+        if (word_guessed) {
+            game_finished = true;
+            cout << "You won the game. Congratulations!" << endl;
+        }
+        else if (max_tries == 0 && word_guessed == false){
+            game_finished = true;
+            cout << "You lost the game" << endl;
+        }
+    }
+}
+
 
 void displayGameDetails(int maxTries){
     cout << "\n"
